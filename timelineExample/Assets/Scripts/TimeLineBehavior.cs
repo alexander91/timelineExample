@@ -11,9 +11,7 @@ using System.Linq;
 
 [ExecuteInEditMode]
 public class TimeLineBehavior : MonoBehaviour {
-
-    public float maxTime = 100f;
-
+    
     public float nowTime;
 
     [SerializeField]
@@ -41,11 +39,6 @@ public class TimeLineBehavior : MonoBehaviour {
         var timeDependant = allBehsList.OfType<ITimeChanging>();
 
         timeManager.TimeDependants = timeDependant;
-
-        if (nowTime > maxTime)
-        {
-            nowTime = maxTime;
-        }
 
         timeManager.Time = nowTime;
         nowTime = timeManager.Time;
